@@ -110,7 +110,7 @@
 
 
 #----- Install Curl
-	start_spinner "Installiere Curl..."
+	start_spinner "Installing Curl..."
 		apt install curl -y > /dev/null 2>&1
 	stop_spinner $?
 	echoEnd
@@ -122,13 +122,13 @@
 	sleep 3
 
 	#--- Curl Pihole
-		echo "Installiere Pihole..."
+		echo "Installing Pihole..."
 		sleep 1
 		curl -sSL https://install.pi-hole.net | bash
 
 	#--- Change Pihole Password
 		echo
-		echo "Gib ein neues Pihole-Passwort ein:"
+		echo "Create a new Pihole-Password:"
 		pihole -a -p
 	echoEnd
 	echoEnd
@@ -138,20 +138,22 @@
 	echo "----- Pihole-Updater -----"
 	sleep 3
 
-	while IFS= read -n1 -r -p "Möchtest du Pihole-Updater installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
+	while IFS= read -n1 -r -p "Do you want to install the automatic Pihole-Updater? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
-		y)  #--- Curl Pihole-Updater
-				start_spinner "Installiere Pihole-Updater..."
+		y)	echo
+			#--- Curl Pihole-Updater
+				start_spinner "Installing Pihole-Updater..."
 					wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/Updater/Pihole-Updater-Installer-Debian-Noah0302sTech.sh > /dev/null 2>&1
 				stop_spinner $?
 				bash ./Pihole-Updater-Installer-Debian-Noah0302sTech.sh
 
 			break;;
-		n)  echo
+		n)	echo
+			echo "Pihole-Updater will NOT be installed!"
 			
 			break;;
-		*)  echo
-			echo "Antoworte mit y oder n";;
+		*)	echo
+			echo "Please answer with either y or n!";;
 	esac
 	done
 	echoEnd
@@ -163,20 +165,22 @@
 	echo "----- Unbound -----"
 	sleep 3
 
-	while IFS= read -n1 -r -p "Möchtest du Unbound installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
+	while IFS= read -n1 -r -p "Do you want to install Unbound (Your own DNS-Upstream)? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
-		y)  #--- Curl Unbound-Installer
-				start_spinner "Installiere Unbound..."
+		y)	echo
+			#--- Curl Unbound-Installer
+				start_spinner "Installing Unbound..."
 					wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/Unbound/Unbound-Installer-Noah0302sTech.sh > /dev/null 2>&1
 				stop_spinner $?
 				bash ./Unbound-Installer-Noah0302sTech.sh
 
 			break;;
-		n)  echo
+		n)	echo
+			echo "Unbound will NOT be installed!"
 			
 			break;;
-		*)  echo
-			echo "Antoworte mit y oder n";;
+		*)	echo
+			echo "Please answer with either y or n!";;
 	esac
 	done
 	echoEnd
@@ -188,20 +192,22 @@
 	echo "----- KeepAliveD -----"
 	sleep 3
 
-	while IFS= read -n1 -r -p "Möchtest du KeepAliveD installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
+	while IFS= read -n1 -r -p "Do you want to install KeepAliveD? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
-		y)  #--- Curl Unbound-Installer
-				start_spinner "Installiere KeepAliveD..."
+		y)	echo
+			#--- Curl Unbound-Installer
+				start_spinner "Installing KeepAliveD..."
 					wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/KeepAliveD/KeepAliveD-Installer-Noah0302sTech.sh > /dev/null 2>&1
 				stop_spinner $?
 				bash ./KeepAliveD-Installer-Noah0302sTech.sh
 
 			break;;
-		n)  echo
+		n)	echo
+			echo "KeepAliveD will NOT be installed!"
 			
 			break;;
-		*)  echo
-			echo "Antoworte mit y oder n";;
+		*)	echo
+			echo "Please answer with either y or n!";;
 	esac
 	done
 	echoEnd
