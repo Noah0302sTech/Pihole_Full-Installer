@@ -119,7 +119,7 @@
 
 #----- Install Pihole
 	echo "----- Pihole -----"
-	sleep 3
+	sleep 1
 
 	#--- Curl Pihole
 		echo "Installing Pihole..."
@@ -136,7 +136,7 @@
 
 #----- Install Pihole-Updater
 	echo "----- Pihole-Updater -----"
-	sleep 3
+	sleep 1
 
 	while IFS= read -n1 -r -p "Do you want to install the automatic Pihole-Updater? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
@@ -163,7 +163,7 @@
 
 #----- Install Unbound
 	echo "----- Unbound -----"
-	sleep 3
+	sleep 1
 
 	while IFS= read -n1 -r -p "Do you want to install Unbound (Your own DNS-Upstream)? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
@@ -190,7 +190,7 @@
 
 #----- Install KeepAliveD
 	echo "----- KeepAliveD -----"
-	sleep 3
+	sleep 1
 
 	while IFS= read -n1 -r -p "Do you want to install KeepAliveD? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
