@@ -5,7 +5,7 @@
 #---------- Initial Checks & Functions
 	#----- Check for administrative privileges
 		if [[ $EUID -ne 0 ]]; then
-			echo "Das Skript muss mit Admin-Privilegien ausgeführt werden! (sudo)"
+			echo "This Script needs to be run with Root-Privileges! (sudo)"
 			exit 1
 		fi
 
@@ -85,12 +85,20 @@
 
 
 
+		#----- echoEnd
+				function echoEnd {
+					echo
+					echo
+					echo
+				}
+
+
+
 	#----- Refresh Packages
 		start_spinner "Aktualisiere Package-Listen..."
-			sudo apt update -y > /dev/null 2>&1
+			sudo apt update > /dev/null 2>&1
 		stop_spinner $?
-		echo
-		echo
+		echoEnd
 
 #-----	-----#	#-----	-----#	#-----	-----#
 #-----	-----#	#-----	-----#	#-----	-----#
@@ -101,14 +109,15 @@
 
 
 #----- Install Unbound
-	start_spinner "Installiere Unbound..."
+	start_spinner "Installing Unbound..."
 		apt install unbound -y > /dev/null 2>&1
 	stop_spinner $?
+	echoEnd
 
 
 
 #----- Configure Unbound
-	start_spinner "Bearbeite Unbound-Config..."
+	start_spinner "Modifying Unbound-Config..."
 	echo 'server:
     # If no logfile is specified, syslog is used
     # logfile: "/var/log/unbound/unbound.log"
@@ -170,47 +179,44 @@
 
     # Ensure privacy of local IP ranges
     private-address: 192.0.0.0/24
-	private-address: 192.168.0.0/16
+    private-address: 192.168.0.0/16
     private-address: 169.254.0.0/16
     private-address: 172.16.0.0/12
     private-address: 10.0.0.0/8
     private-address: fd00::/8
     private-address: fe80::/10' > /etc/unbound/unbound.conf.d/pi-hole.conf
 	stop_spinner $?
-	echo
-	echo
+	echoEnd
 
 
 
 #----- Enable Service
-	start_spinner "Starte Unbound-Service..."
+	start_spinner "Starting Unbound-Service..."
 		service unbound restart > /dev/null 2>&1
 		dig "pi-hole.net @127.0.0.1 -p 5335" > /dev/null 2>&1
 	stop_spinner $?
-	echo
-	echo
+	echoEnd
 
 
 
 #----- Change Pihole DNS Config
-	echo "Nun muss der DNS-Server in der Pihole WebGUI auf '127.0.0.1#5335' angepasst und 'Use DNSSEC' angehakt werden!"
+	echo "Now the DNS-Server in the Pihole WebGUI hat to be set to '127.0.0.1#5335' and 'Use DNSSEC' needs to be checked!"
 	sleep 5
-	while IFS= read -n1 -r -p "Hast du den DNS-Server angepasst? [y]es|[n]o: " && [[ $REPLY != q ]]; do
+	while IFS= read -n1 -r -p "Have you made the necessary Changes? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
 		y)	echo
-			echo "Fahre fort!"
+			echo "Continuing..."
 
 			break;;
 		n)	echo
-			echo "Bitte ändere den DNS-Server in der Pihole WebGUI auf '127.0.0.1#5335' und hake 'Use DNSSEC' an!"
+			echo "Please change the DNS-Server in the Pihole WebGUI to '127.0.0.1#5335' and check 'Use DNSSEC'!"
 				
 			;;
 		*)	echo
-			echo "Antoworte mit y oder n";;
+			echo "Please answer with y or n";;
 	esac
 	done
-	echo
-	echo
+	echoEnd
 
 
 
@@ -223,38 +229,38 @@
 #----- Variables
 	folderVar=Pihole
 	subFolderVar=Unbound
-	shPrimaryVar=Unbound-Installer.sh
+	shPrimaryVar=Unbound-Installer-Noah0302sTech.sh
 
 #----- Create Folders
-	start_spinner "Erstelle Verzeichnisse..."
+	start_spinner "Creating Directories..."
 		#--- /home/$SUDO_USER/Noah0302sTech
 			if [ ! -d /home/$SUDO_USER/Noah0302sTech ]; then
 				mkdir /home/$SUDO_USER/Noah0302sTech > /dev/null 2>&1
 			else
-				echo "Ordner /home/$SUDO_USER/Noah0302sTech bereits vorhanden!"
+				echo "Directory /home/$SUDO_USER/Noah0302sTech is already present!"
 			fi
 
 		#--- Folder Variable
 			if [ ! -d /home/$SUDO_USER/Noah0302sTech/$folderVar ]; then
 				mkdir /home/$SUDO_USER/Noah0302sTech/$folderVar > /dev/null 2>&1
 			else
-				echo "Ordner /home/$SUDO_USER/Noah0302sTech/$folderVar bereits vorhanden!"
+				echo "Ordner /home/$SUDO_USER/Noah0302sTech/$folderVar is already present!"
 			fi
 
 		#--- Sub Folder Variable
 			if [ ! -d /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar ]; then
 				mkdir /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar > /dev/null 2>&1
 			else
-				echo "Ordner /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar bereits vorhanden!"
+				echo "Directory /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar is already present!"
 			fi
 	stop_spinner $?
 
 #----- Move Bash-Script
-	start_spinner "Verschiebe Bash-Skript..."
+	start_spinner "Moving Bash-Script..."
 		#--- Primary Script Variable
 			if [ ! -f /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar ]; then
 				mv /home/$SUDO_USER/$shPrimaryVar /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar > /dev/null 2>&1
 			else
-				echo "Die Datei /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar ist bereits vorhanden!"
+				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar is already present!"
 			fi
 	stop_spinner $?
