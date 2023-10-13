@@ -14,8 +14,10 @@ cd
 ```bash
 wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/Pihole-Full-Installer-Debian-Noah0302sTech.sh && sudo bash Pihole-Full-Installer-Debian-Noah0302sTech.sh
 ```
+
 **OR**
-## Go to Releases and follow the Instructions there
+
+#### Go to Releases and follow the Instructions there
 
 -----
 
