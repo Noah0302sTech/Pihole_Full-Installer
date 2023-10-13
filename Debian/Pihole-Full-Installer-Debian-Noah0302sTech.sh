@@ -1,7 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Pihole-Full-Installer-Debian-Noah0302sTech.sh && sudo bash Pihole-Full-Installer-Debian-Noah0302sTech.sh
-#	 wget https://raw.githubusercontent.com/Noah0302sTech/Bash-Skripte/master/Pihole/Pihole-Full-Installer-Debian-Noah0302sTech.sh && sudo bash Pihole-Full-Installer-Debian-Noah0302sTech.sh
+#	 wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/Pihole-Full-Installer-Debian-Noah0302sTech.sh && sudo bash Pihole-Full-Installer-Debian-Noah0302sTech.sh
 
 #---------- Initial Checks & Functions
 	#----- Check for administrative privileges
@@ -38,7 +38,7 @@
 						# start spinner
 						i=1
 						sp='\|/-'
-						delay=${SPINNER_DELAY:-0.15}
+						delay=${SPINNER_DELAY:-0.25}
 
 						while :
 						do
@@ -113,6 +113,7 @@
 	start_spinner "Installiere Curl..."
 		apt install curl -y > /dev/null 2>&1
 	stop_spinner $?
+	echoEnd
 
 
 
