@@ -118,7 +118,7 @@
 
 
 #----- Install Pihole
-	echo "Pihole....."
+	echo "----- Pihole -----"
 	sleep 3
 
 	#--- Curl Pihole
@@ -135,13 +135,14 @@
 
 
 #----- Install Pihole-Updater
-	echo "Pihole-Updater....."
+	echo "----- Pihole-Updater -----"
+	sleep 3
 
 	while IFS= read -n1 -r -p "Möchtest du Pihole-Updater installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
 		y)  #--- Curl Pihole-Updater
 				start_spinner "Installiere Pihole-Updater..."
-					wget https://raw.githubusercontent.com/Noah0302sTech/Bash-Skripte/master/Pihole/Updater/Pihole-Updater-Installer-Debian-Noah0302sTech.sh > /dev/null 2>&1
+					wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/Updater/Pihole-Updater-Installer-Debian-Noah0302sTech.sh > /dev/null 2>&1
 				stop_spinner $?
 				bash ./Pihole-Updater-Installer-Debian-Noah0302sTech.sh
 
@@ -159,13 +160,14 @@
 
 
 #----- Install Unbound
-	echo "Unbound....."
+	echo "----- Unbound -----"
+	sleep 3
 
 	while IFS= read -n1 -r -p "Möchtest du Unbound installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
 		y)  #--- Curl Unbound-Installer
 				start_spinner "Installiere Unbound..."
-					wget https://raw.githubusercontent.com/Noah0302sTech/Bash-Skripte/master/Pihole/Unbound/Unbound-Installer-Noah0302sTech.sh > /dev/null 2>&1
+					wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/Unbound/Unbound-Installer-Noah0302sTech.sh > /dev/null 2>&1
 				stop_spinner $?
 				bash ./Unbound-Installer-Noah0302sTech.sh
 
@@ -183,13 +185,14 @@
 
 
 #----- Install KeepAliveD
-	echo "KeepAliveD....."
+	echo "----- KeepAliveD -----"
+	sleep 3
 
 	while IFS= read -n1 -r -p "Möchtest du KeepAliveD installieren? [y]es|[n]o: " && [[ $REPLY != q ]]; do
 	case $REPLY in
 		y)  #--- Curl Unbound-Installer
 				start_spinner "Installiere KeepAliveD..."
-					wget https://raw.githubusercontent.com/Noah0302sTech/Bash-Skripte/master/Pihole/KeepAliveD/KeepAliveD-Installer-Noah0302sTech.sh > /dev/null 2>&1
+					wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/KeepAliveD/KeepAliveD-Installer-Noah0302sTech.sh > /dev/null 2>&1
 				stop_spinner $?
 				bash ./KeepAliveD-Installer-Noah0302sTech.sh
 
