@@ -283,27 +283,27 @@
 			if [ ! -f /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar ]; then
 				mv /home/$SUDO_USER/$shPrimaryVar /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar > /dev/null 2>&1
 			else
-				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar ist is already present!"
+				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar is already present!"
 			fi
 
 		#--- sh2Var Script Variable
 			if [ ! -f /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder2Var/$sh2Var ]; then
 				mv /home/$SUDO_USER/$sh2Var /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder2Var/$sh2Var > /dev/null 2>&1
 			else
-				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder2Var/$sh2Var ist is already present!"
+				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder2Var/$sh2Var is already present!"
 			fi
 
 		#--- sh3Var Script Variable
 			if [ ! -f /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder3Var/$sh3Var ]; then
 				mv /home/$SUDO_USER/$sh3Var /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder3Var/$sh3Var > /dev/null 2>&1
 			else
-				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder3Var/$sh3Var ist is already present!"
+				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder3Var/$sh3Var is already present!"
 			fi
 
 		#--- sh4Var Script Variable
 			if [ ! -f /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder4Var/$sh4Var ]; then
 				mv /home/$SUDO_USER/$sh4Var /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder4Var/$sh4Var > /dev/null 2>&1
 			else
-				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder4Var/$sh4Var ist is already present!"
+				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolder4Var/$sh4Var is already present!"
 			fi
 	stop_spinner $?

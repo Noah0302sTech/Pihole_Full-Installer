@@ -95,7 +95,7 @@
 
 
 	#----- Refresh Packages
-		start_spinner "Aktualisiere Package-Listen..."
+		start_spinner "Updating Package-Lists..."
 			sudo apt update > /dev/null 2>&1
 		stop_spinner $?
 		echoEnd
@@ -208,21 +208,21 @@ vrrp_instance VI_1 {
 			if [ ! -d /home/$SUDO_USER/Noah0302sTech ]; then
 				mkdir /home/$SUDO_USER/Noah0302sTech > /dev/null 2>&1
 			else
-				echo "Ordner /home/$SUDO_USER/Noah0302sTech bereits vorhanden!"
+				echo "Directory /home/$SUDO_USER/Noah0302sTech is already present!"
 			fi
 
 		#--- Folder Variable
 			if [ ! -d /home/$SUDO_USER/Noah0302sTech/$folderVar ]; then
 				mkdir /home/$SUDO_USER/Noah0302sTech/$folderVar > /dev/null 2>&1
 			else
-				echo "Ordner /home/$SUDO_USER/Noah0302sTech/$folderVar bereits vorhanden!"
+				echo "Directory /home/$SUDO_USER/Noah0302sTech/$folderVar is already present!"
 			fi
 
 		#--- Sub Folder Variable
 			if [ ! -d /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar ]; then
 				mkdir /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar > /dev/null 2>&1
 			else
-				echo "Ordner /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar bereits vorhanden!"
+				echo "Directory /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar is already present!"
 			fi
 	stop_spinner $?
 
@@ -232,6 +232,6 @@ vrrp_instance VI_1 {
 			if [ ! -f /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar ]; then
 				mv /home/$SUDO_USER/$shPrimaryVar /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar > /dev/null 2>&1
 			else
-				echo "Die Datei /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar ist bereits vorhanden!"
+				echo "The File /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/$shPrimaryVar is already present!"
 			fi
 	stop_spinner $?

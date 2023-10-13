@@ -95,7 +95,7 @@
 
 
 	#----- Refresh Packages
-		start_spinner "Aktualisiere Package-Listen..."
+		start_spinner "Updating Package-Lists..."
 			sudo apt update > /dev/null 2>&1
 		stop_spinner $?
 		echoEnd
@@ -244,7 +244,7 @@
 			if [ ! -d /home/$SUDO_USER/Noah0302sTech/$folderVar ]; then
 				mkdir /home/$SUDO_USER/Noah0302sTech/$folderVar > /dev/null 2>&1
 			else
-				echo "Ordner /home/$SUDO_USER/Noah0302sTech/$folderVar is already present!"
+				echo "Directory /home/$SUDO_USER/Noah0302sTech/$folderVar is already present!"
 			fi
 
 		#--- Sub Folder Variable
