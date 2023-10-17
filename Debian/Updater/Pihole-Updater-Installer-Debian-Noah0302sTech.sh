@@ -1,6 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Pihole-Updater-Installer-Debian-Noah0302sTech.sh && sudo bash Pihole-Updater-Installer-Debian-Noah0302sTech.sh
+#	wget https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/Updater/Pihole-Updater-Installer-Debian-Noah0302sTech.sh && sudo bash Pihole-Updater-Installer-Debian-Noah0302sTech.sh
 
 #---------- Initial Checks & Functions
 	#----- Check for administrative privileges
@@ -146,15 +147,15 @@
 	echo
 
 #Debug
-	echo "----------" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
+	echo "------------------------------" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
 	echo "'Pihole-Updater Cron-Job ran @'" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
 	date >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
-	echo "---" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
+	echo "----------" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
 	echo "Update Pihole..." >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
 		echo "'$piholeUpdateOutput'" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
 	echo "Update Gravity..." >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
 		echo "'$piholeGravityOutput'" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
-	echo "----------" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
+	echo "------------------------------" >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt
 	echo '' >> /home/$SUDO_USER/Noah0302sTech/$folderVar/$subFolderVar/Cron-Check.txt" > /home/$SUDO_USER/$shSecondaryVar
 
 	#--- Make Pihole-Updater.sh executable
