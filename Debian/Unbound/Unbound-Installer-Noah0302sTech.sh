@@ -1,6 +1,7 @@
 #!/bin/bash
 #	Made by Noah0302sTech
 #	chmod +x Unbound-Installer-Noah0302sTech.sh && sudo bash Unbound-Installer-Noah0302sTech.sh
+#	https://raw.githubusercontent.com/Noah0302sTech/Pihole_Full-Installer/master/Debian/Unbound/Unbound-Installer-Noah0302sTech.sh && sudo bash Unbound-Installer-Noah0302sTech.sh
 
 #---------- Initial Checks & Functions
 	#----- Check for administrative privileges
