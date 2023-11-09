@@ -193,7 +193,9 @@
 
 #----- Enable Service
 	start_spinner "Starting Unbound-Service..."
+		sleep 1
 		service unbound restart > /dev/null 2>&1
+		sleep 1
 		dig "pi-hole.net @127.0.0.1 -p 5335" > /dev/null 2>&1
 	stop_spinner $?
 	echoEnd
